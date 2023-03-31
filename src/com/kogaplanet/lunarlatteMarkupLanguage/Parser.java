@@ -9,8 +9,8 @@ public class Parser {
 	private ArrayList<Token> tokenTable;
 	
 	
-	public Parser(Scanner scanner) {
-		tokenTable = scanner.tokenTable;
+	public Parser(String fileName) {
+		tokenTable = new Scanner(fileName).tokenTable;
 		parse();
 	}
 	
