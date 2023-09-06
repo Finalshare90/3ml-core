@@ -6,6 +6,8 @@ public class TagNode {
 	
 	public String name;
 	public ArrayList<String> data = new ArrayList<>();
+	TagNode parent, children;
+	
 	
 	public TagNode(String name){
 		this.name = name;
