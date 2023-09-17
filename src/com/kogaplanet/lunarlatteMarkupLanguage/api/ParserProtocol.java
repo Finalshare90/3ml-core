@@ -14,6 +14,7 @@ public interface ParserProtocol {
 	public void parserInit(Parser parser);
 	
 	public TagNode call(String tag);
-
+	public TagNode callChild(String parent, String child);
+	public TagNode callParent(TagNode tag);
 
 }

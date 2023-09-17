@@ -7,7 +7,7 @@ public class TagNode {
 	
 	public String name;
 	public ArrayList<String> data = new ArrayList<>();
-	TagNode parent;
+	public TagNode parent;
 	public HashMap<String,TagNode> children = new HashMap<String, TagNode>();
 	
 	
