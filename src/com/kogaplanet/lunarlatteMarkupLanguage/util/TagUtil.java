@@ -31,9 +31,8 @@ public class TagUtil {
 	static public void printTag(TagNode tag) {
 		System.out.println(tag.name + ":");
 		for(int count = 0; count < tag.data.size(); count++) {
-			System.out.println(" |_" + tag.data.get(count));
+			System.out.println(tag.data.get(count));
 		}
-		System.out.println();
 	}
 	
 	static public String formatTag(String tagName) {
@@ -100,5 +99,32 @@ public class TagUtil {
 		}	
 		return line;
 	}
+	
+	static public List<String> getPathIdentifiers(String data) {
+		
+		ArrayList<String> identifiers = new ArrayList<>();
+		char[]charData = data.toCharArray();
+		
+		String tempIdentifier = "";
+		
+		for(int currentChar = 0; currentChar < charData.length; currentChar++){
+			
+			if(charData[currentChar] == '>'){
+				
+				identifiers.add(tempIdentifier);
+				tempIdentifier = "";
+				
+			}else{
+				tempIdentifier += charData[currentChar];
+			}
+			
+		}
+		
+		identifiers.add(tempIdentifier);
+		
+		
+		return identifiers;
+	}
+	
 	
 }

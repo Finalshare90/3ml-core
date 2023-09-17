@@ -1,12 +1,14 @@
 package com.kogaplanet.lunarlatteMarkupLanguage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TagNode {
 	
 	public String name;
 	public ArrayList<String> data = new ArrayList<>();
-	TagNode parent, children;
+	TagNode parent;
+	public HashMap<String,TagNode> children = new HashMap<String, TagNode>();
 	
 	
 	public TagNode(String name){

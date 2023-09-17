@@ -94,8 +94,10 @@ public class Scanner {
 			token = new Token(TokenType.CALL, tag);			
 			break;
 			
-		case ".":
-			token = new Token(TokenType.CALL_CHILDREN, data);
+		case ">":
+			
+			tag = TagUtil.removeAchar(data, '$');
+			token = new Token(TokenType.CALL_CHILDREN, tag);
 			break;
 			
 		default:	
@@ -111,14 +113,16 @@ public class Scanner {
 		if(data.contains("[")){
 			return "[";	
 		}
-	
+		
+		else if(data.contains(">") && data.contains("$")){
+			return ">";
+		}
+		
 		else if (data.contains("$")) {
 			return "$";	
 		}
 		
-		else if(data.contains(".")){
-			return ".";
-		}
+		
 		
 		return data;
 	}
