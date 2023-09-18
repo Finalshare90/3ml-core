@@ -14,8 +14,8 @@ public class TagHandler implements ParserProtocol {
 	}
 	
 	@Override
-	public TagNode callParent(TagNode tag) {
-		return tag.parent;
+	public TagNode callParent(String tag) {
+		return call(tag).parent;
 	}
 	
 	@Override
