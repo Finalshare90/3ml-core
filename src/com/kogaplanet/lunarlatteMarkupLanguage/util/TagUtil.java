@@ -100,6 +100,18 @@ public class TagUtil {
 		return line;
 	}
 	
+	public static boolean checkForDuplicate(TagNode tagNode, List<TagNode> iterableList) {
+		
+		boolean isDuplicated = false;
+		
+		for(TagNode currentCaller : iterableList){
+			if(!currentCaller.name.equals(tagNode.name)){
+				isDuplicated = true;
+			}
+		}
+		return isDuplicated;
+	}
+	
 	static public List<String> getPathIdentifiers(String data) {
 		
 		ArrayList<String> identifiers = new ArrayList<>();

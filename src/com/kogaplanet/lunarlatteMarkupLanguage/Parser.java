@@ -69,7 +69,7 @@ public class Parser {
 							
 						}else {		
 							
-							nodeStack.peek().children.put(tempNode.name,tempNode);
+							nodeStack.peek().addChildren(tempNode.name,tempNode);
 							tempNode.parent = nodeStack.peek();
 									
 							currentToken++;
@@ -80,6 +80,9 @@ public class Parser {
 					case CALL:
 						
 						TagNode calledTag = TAGTABLE.get(tokenTable.get(currentToken).data);
+						
+						calledTag.setCaller(nodeStack.peek());
+						nodeStack.peek().setCalled(calledTag);
 						
 						for(int currentData = 0; currentData < calledTag.data.size(); currentData++){
 							nodeStack.peek().setData(calledTag.data.get(currentData));
@@ -113,6 +116,8 @@ public class Parser {
 							caller.setData(children.data.get(currentData));
 						}
 						
+						caller.setCalled(children);
+						children.setCaller(caller);
 						
 						currentToken++;
 						break;
