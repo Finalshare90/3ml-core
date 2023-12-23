@@ -10,11 +10,37 @@ public interface ParserProtocol {
 	
 	final HashMap<String, TagNode> TABLE = Parser.TAGTABLE;
 	
-	// Init the parser, always init a the parser before acessing TABLE
+	
+	@Deprecated
+	/**
+	* DEPRECATED, do NOT use this in new implementations
+	* Init the parser, always init a the parser before acessing TABLE
+	*/ 
 	public void parserInit(Parser parser);
 	
-	public TagNode call(String tag);
+	/**
+	* Init the parser by reading a 3ml file specified in path
+	* a new tag TABLE will be produced if successful
+	*/ 
+	public void read(String path);
+
+	/**
+	 * Calls the target tag from table.
+	 * 
+	 * @return A ready-to-use instance of  the called tag
+	 */
+	public TagNode call(String tagIdentifier);
+	
+	@Deprecated
+	/**
+	 * Poor design choose of mine, use call(String tagIdentifier).children directly instead.
+	 * */
 	public TagNode callChild(String parent, String child);
+	
+	@Deprecated
+	/**
+	 * Poor design choose of mine, use call(String tagIdentifier).parent directly instead.
+	 * */
 	public TagNode callParent(String parent);
 
 }

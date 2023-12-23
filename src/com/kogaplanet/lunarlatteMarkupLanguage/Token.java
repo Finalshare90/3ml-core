@@ -19,4 +19,26 @@ public  class Token	{
 	public void setLine(int line) {
 		this.line = line;
 	}
+	
+	@Override
+	public String toString() {
+		
+		String tokenString = null;
+		
+		switch (token) {
+			case DECLARE:
+				tokenString = "[" + data;
+				break;
+				
+			case END:
+				tokenString = "end]";
+			break;
+			
+			default:
+				tokenString = data;
+				break;
+		}
+		
+		return tokenString;
+	}
 }
