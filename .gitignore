@@ -3,7 +3,7 @@
 *.3ml
 
 # NUTM files (Non usual testing methods)
-/src/com/kogaplanet/lunarlatteMarkupLanguage/test/*.java
+/src/com/kogaplanet/lunarlatteMarkupLanguage/test/
 
 # Compiled class file
 *.class
